@@ -1,14 +1,6 @@
-peline {
+pipeline {
     agent any
     stages {
-        stage('Clone Repository') {
-            steps {
-                // The workspace directory will be used by default
-                git branch: 'master',
-                    url: 'https://github.com/abhijeetpoonia/trigger.git',
-                    credentialsId: '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'
-            }
-        }
         stage('Build Image') {
             steps {
                 sh 'docker pull abhijeetsingh1/aesthesia:v1'
@@ -20,5 +12,4 @@ peline {
             }
         }
     }
-}
- 
+} 
