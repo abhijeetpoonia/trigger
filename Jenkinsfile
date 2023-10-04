@@ -5,8 +5,8 @@ peline {
             steps {
                 // The workspace directory will be used by default
                 git branch: 'master',
-                    url: 'https://github.com/abhijeetpoonia/aesthesia.git',
-                    credentialsId: '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'
+                    url: 'https://github.com/abhijeetpoonia/trigger.git',
+                    credentialsId: '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'
             }
         }
         stage('Build Image') {
