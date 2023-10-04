@@ -6,7 +6,7 @@ peline {
                 // The workspace directory will be used by default
                 git branch: 'master',
                     url: 'https://github.com/abhijeetpoonia/trigger.git',
-                    credentialsId: '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'
+                    credentialsId: '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'
             }
         }
         stage('Build Image') {
