@@ -1,19 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Fetch Code from GitHub') {
+        stage('clone repository') {
             steps {
-                // Checkout code from GitHub repository using credentials
-                checkout([$class: 'GitSCM',
-                    branches: [[name: '*/master']], // Specify the branch you want to build
-                    doGenerateSubmoduleConfigurations: false,
-                    extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CheckoutOption', timeout: 60]],
-                    submoduleCfg: [],
-                    userRemoteConfigs: [[
-                        credentialsId: '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',
-                        url: 'https://github.com/abhijeetpoonia/trigger.git' 
-                    ]]
-                ])
+                dir('/var/lib/jenkins/workspace/aew') {
+                    git branch: 'master',
+                        url: 'https://github.com/abhijeetpoonia/trigger.git',
+                        credentialsId: 'https://github.com/abhijeetpoonia/trigger.git'
+                }
             }
         }
         stage('Build Image') {
@@ -23,7 +17,7 @@ pipeline {
         }
         stage('Create Container') {
             steps {
-                sh 'docker run -d --name my-container -p 8080:80 abhijeetsingh1/aesthesia:v1'
+                sh 'docker run -d --name my-container -p 8000:8000 abhijeetsingh1/aesthesia:v1'
             }
         }
     }
