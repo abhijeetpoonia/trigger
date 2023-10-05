@@ -1,6 +1,21 @@
 pipeline {
     agent any
     stages {
+        stage('Fetch Code from GitHub') {
+            steps {
+                // Checkout code from GitHub repository using credentials
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/master']], // Specify the branch you want to build
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CheckoutOption', timeout: 60]],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        credentialsId: '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',
+                        url: 'https://github.com/abhijeetpoonia/trigger.git' 
+                    ]]
+                ])
+            }
+        }
         stage('Build Image') {
             steps {
                 sh 'docker pull abhijeetsingh1/aesthesia:v1'
@@ -12,4 +27,5 @@ pipeline {
             }
         }
     }
-} 
+}
+ 
