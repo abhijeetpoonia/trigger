@@ -1,12 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('clone repository') {
+        stage('Clone Repository') {
             steps {
                 dir('/var/lib/jenkins/workspace/aew') {
-                    git branch: 'master',
-                        url: 'https://github.com/abhijeetpoonia/trigger.git',
-                        credentialsId: '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'
+                    script {
+                        git branch: 'master',
+                            url: 'https://github.com/abhijeetpoonia/trigger.git',
+                            credentialsId: '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'
+                    }
                 }
             }
         }
@@ -15,12 +17,12 @@ pipeline {
                 sh 'docker pull abhijeetsingh1/aesthesia:v1'
             }
         }
-        stage('check-container') {
+        stage('Check and Remove Container') {
             steps {
-                sh 'docker stop my-container && docker rm my-container'
+                sh 'docker stop my-container || true'
+                sh 'docker rm my-container || true'
             }
         }
-
         stage('Create Container') {
             steps {
                 sh 'docker run -d --name my-container -p 8000:8000 abhijeetsingh1/aesthesia:v1'
