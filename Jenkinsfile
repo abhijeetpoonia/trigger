@@ -6,7 +6,7 @@ pipeline {
                 dir('/var/lib/jenkins/workspace/aew') {
                     git branch: 'master',
                         url: 'https://github.com/abhijeetpoonia/trigger.git',
-                        credentialsId: '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'
+                        credentialsId: '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'
                 }
             }
         }
