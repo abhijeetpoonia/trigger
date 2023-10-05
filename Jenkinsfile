@@ -15,6 +15,12 @@ pipeline {
                 sh 'docker pull abhijeetsingh1/aesthesia:v1'
             }
         }
+        stage('check-container') {
+            steps {
+                sh 'docker stop my-container && docker rm my-container'
+            }
+        }
+
         stage('Create Container') {
             steps {
                 sh 'docker run -d --name my-container -p 8000:8000 abhijeetsingh1/aesthesia:v1'
