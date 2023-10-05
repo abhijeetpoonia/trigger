@@ -10,7 +10,7 @@ pipeline {
                     extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CheckoutOption', timeout: 60]],
                     submoduleCfg: [],
                     userRemoteConfigs: [[
-                        credentialsId: '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',
+                        credentialsId: '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',
                         url: 'https://github.com/abhijeetpoonia/trigger.git' 
                     ]]
                 ])
