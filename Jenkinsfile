@@ -23,13 +23,13 @@
         }
         stage('Check and Remove Container') {
             steps {
-                sh 'docker stop my-container || true'
-                sh 'docker rm my-container || true'
+                sh 'sudo docker stop my-container || true'
+                sh 'sudo docker rm my-container || true'
             }
         }
         stage('Create Container') {
             steps {
-                sh 'docker run -d --name my-container -p 8000:8000 abhijeetsingh1/aesthesia:v1'
+                sh 'sudo docker run -d --name my-container -p 8000:8000 abhijeetsingh1/aesthesia:v1'
             }
         }
     }
