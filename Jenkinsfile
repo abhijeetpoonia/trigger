@@ -18,7 +18,7 @@
         }
         stage('Build Image') {
             steps {
-                sh 'docker pull abhijeetsingh1/aesthesia:v1'
+                sh 'sudo docker pull abhijeetsingh1/aesthesia:v1'
             }
         }
         stage('Check and Remove Container') {
