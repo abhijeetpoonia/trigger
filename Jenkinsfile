@@ -7,7 +7,7 @@
     stages {
         stage('Clone Repository') {
             steps {
-                dir('/home/ubuntu/kube-jen') {
+                dir('/home/ubuntu/workspace/aq-1') {
                     script {
                         git branch: 'master',
                             url: 'https://github.com/abhijeetpoonia/trigger.git',
