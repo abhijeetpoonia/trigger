@@ -7,7 +7,7 @@ pipeline {
                     script {
                         git branch: 'master',
                             url: 'https://github.com/abhijeetpoonia/trigger.git',
-                            credentialsId: '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'
+                            credentialsId: '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'
                     }
                 }
             }
