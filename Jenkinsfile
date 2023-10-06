@@ -1,5 +1,9 @@
-pipeline {
-    agent any
+ pipeline {
+    agent {
+        node {
+            label 'kubeapp'
+        }
+    }
     stages {
         stage('Clone Repository') {
             steps {
@@ -30,4 +34,4 @@ pipeline {
         }
     }
 }
- 
+
