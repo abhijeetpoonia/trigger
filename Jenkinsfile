@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                dir('/var/lib/jenkins/workspace/aew') {
+                dir('/home/ubuntu/kube-jen') {
                     script {
                         git branch: 'master',
                             url: 'https://github.com/abhijeetpoonia/trigger.git',
